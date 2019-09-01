@@ -1,0 +1,272 @@
+---
+title: "Common CC MIDI Implementation"
+description: "open-midi-rtc-schema specification for Common CC usage"
+displayName: "Default CC Mappings"
+implementationVersion: "1.0.0"
+schemaVersion: "0.0.1"
+device:
+  description: "Common Default CC Mappings"
+  deviceType: "MULTI"
+  displayName: "Default"
+  documentationResource: "http://nickfever.com/music/midi-cc-list"
+  identifier: "00"
+  manufacturer: "N/A"
+  model: "Default"
+  name: "Default"
+  version: "1.0.0"
+  additionalProperties: {}
+receives:
+- "NOTE_NUMBER"
+- "VELOCITY_NOTE_ON"
+- "VELOCITY_NOTE_OFF"
+- "PITCH_BEND"
+- "PROGRAM_CHANGE"
+- "CLOCK"
+- "CHANNEL_PRESSURE"
+transmits:
+- "NOTE_NUMBER"
+- "VELOCITY_NOTE_ON"
+- "VELOCITY_NOTE_OFF"
+- "PITCH_BEND"
+- "PROGRAM_CHANGE"
+- "CLOCK"
+- "CHANNEL_PRESSURE"
+additionalProperties: {}
+sysexCommands: []
+nrpnCommands: []
+rpnCommands: []
+controlChangeCommands:
+- controlChangeNumber: 1
+  description: "Typically sent via a mod wheel or mod ribbon"
+  name: "Modulation"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 2
+  description: "Originally intended for modulation from a breath input control"
+  name: "Breath Controller"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 4
+  description: "Sends a continuous stream of values based on the pedal position"
+  name: "Foot Controller"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 5
+  description: "Controls the portamento rate"
+  name: "Portamento Time"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 7
+  description: "Channel volume control"
+  name: "Volume"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 8
+  description: "Control left and right balance for stereo patches"
+  name: "Balance"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 10
+  description: "Control left and right balance for mono patches"
+  name: "Panning"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 11
+  description: "Typically used as a percentage of volume (CC7)"
+  name: "Expression"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 12
+  description: "Typically used to control an effect parameter"
+  name: "Effect Param 1"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 13
+  description: "Typically used to control an effect parameter"
+  name: "Effect Param 2"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 64
+  description: "Sustain Control"
+  name: "Damper Pedal"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 65
+  description: "Toggles portamento"
+  name: "Portamento On/Off"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 66
+  description: "Toggles sostenuto"
+  name: "Sostenuto On/Off"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 67
+  description: "Softens the volume"
+  name: "Soft Pedal On/Off"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 68
+  description: "Toggles legato mode"
+  name: "Legato On/Off"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 69
+  description: "Different type of note hold mode"
+  name: "Hold 2 On/Off"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 71
+  description: "Generally used for filter resonance"
+  name: "Filter Resonance"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 72
+  description: "Generally used for amp envelope release"
+  name: "Release Time"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 73
+  description: "Generally used for amp envelope attack"
+  name: "Attack Time"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 74
+  description: "Generally used for filter frequency cutoff"
+  name: "Filter Cutoff"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 84
+  description: "The amount of portamento"
+  name: "Portamento Depth"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 91
+  description: "Depth of effect 1"
+  name: "Effect 1 Depth"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 92
+  description: "Depth of effect 2"
+  name: "Effect 2 Depth"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 93
+  description: "Depth of effect 3"
+  name: "Effect 3 Depth"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 94
+  description: "Depth of effect 4"
+  name: "Effect 4 Depth"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
+- controlChangeNumber: 95
+  description: "Depth of effect 5"
+  name: "Effect 5 Depth"
+  valueRange:
+    discreteValues: []
+    max: 127
+    min: 0
+    additionalProperties: {}
+  additionalProperties: {}
