@@ -11,7 +11,7 @@ For manufactuers and developers, creating documents that adhere to the schema pr
 Since this is a JSON Schema, there are tools available that can validate a document and ensure that it conforms to the schema. In addition, there are also tools that can generate code stubs, which can be used to parse documents that adhere to the schema. Once such tool is [Quicktype](https://github.com/quicktype/quicktype), which can be installed via `npm`. For convenience, a script for generating data models via Quicktype is available in the `tools` directory of this repo.
 
 
-####Existing documents
+### Existing documents
 Open source specs that conform to the schema can be found here: [https://github.com/eokuwwy/open-midi-rtc-specs](https://github.com/eokuwwy/open-midi-rtc-specs)   
 
 [See the list](./list.md) of apps, software, and hardware that use the Open MIDI Realtime Schema.
