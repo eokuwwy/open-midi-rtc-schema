@@ -1,0 +1,527 @@
+{
+  "type": "object",
+  "id": "open-midi-rtc-schema-0.0.1",
+  "description": "The Open MIDI Realtime Schema",
+  "title": "MidiImplementationSpecification",
+  "properties": {
+    "controlChangeCommands": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Control Change command specification",
+        "title": "Control Change",
+        "properties": {
+          "additionalInfo": {
+            "type": "string",
+            "description": "Additional info that may be useful"
+          },
+          "controlChangeNumber": {
+            "type": "integer",
+            "description": "The control change number",
+            "maximum": 127.0,
+            "minimum": 0.0
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the control change"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the function of the control change"
+          },
+          "valueRange": {
+            "type": "object",
+            "description": "The CC value range",
+            "title": "CCValueRange",
+            "properties": {
+              "discreteValues": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "description": "A CC name/value pair",
+                  "title": "DiscreteCCValue",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "CC value name"
+                    },
+                    "value": {
+                      "type": "integer",
+                      "description": "CC value",
+                      "maximum": 127.0,
+                      "minimum": 0.0
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "value"
+                  ]
+                },
+                "description": "A list of special one-off values outside of the normal value range"
+              },
+              "max": {
+                "type": "integer",
+                "description": "Maximum value",
+                "maximum": 127.0,
+                "minimum": 0.0
+              },
+              "min": {
+                "type": "integer",
+                "description": "Minimum value",
+                "maximum": 127.0,
+                "minimum": 0.0
+              }
+            },
+            "required": [
+              "max",
+              "min"
+            ]
+          }
+        },
+        "required": [
+          "controlChangeNumber",
+          "name",
+          "valueRange"
+        ]
+      },
+      "description": "The available control change commands for the specification"
+    },
+    "description": {
+      "type": "string",
+      "description": "A description of the specification"
+    },
+    "device": {
+      "type": "object",
+      "description": "The device for the specification",
+      "title": "Device",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description of the device"
+        },
+        "deviceType": {
+          "enum": [
+            "SYNTHESIZER",
+            "DRUM_MACHINE",
+            "EFFECTS",
+            "LIGHTS",
+            "DAW",
+            "DJ",
+            "MULTI",
+            "OTHER"
+          ],
+          "type": "string",
+          "description": "Type of device"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The name used for MIDI device discovery"
+        },
+        "documentationResource": {
+          "type": "string",
+          "description": "Link to external documentation"
+        },
+        "identifier": {
+          "type": "string",
+          "description": "an alternate identifier"
+        },
+        "manufacturer": {
+          "type": "string",
+          "description": "Name of the manufacturer"
+        },
+        "model": {
+          "type": "string",
+          "description": "Model name or number"
+        },
+        "name": {
+          "type": "string",
+          "description": "Internal naming reference"
+        },
+        "sysexMetadata": {
+          "type": "object",
+          "description": "Overarching summary of sysex command structure",
+          "title": "DeviceSystemExclusiveConfig",
+          "properties": {
+            "bitDescriptions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "An ordered list that describes each bit in a system exclusive message; Example: [\"sysex start\", \"device identifier\", \"parameter type\", \"prod ID 1\", \"prod ID 2\", \"prod ID 3\", \"address high\", \"address mid\", \"address low\", \"data value\", \"sysex end\"]"
+            },
+            "deviceIdentifier": {
+              "type": "string",
+              "description": "Bit value used for device identification in sysex messages"
+            },
+            "exampleDescription": {
+              "type": "string",
+              "description": "A description of what the working example does"
+            },
+            "exampleMessage": {
+              "type": "string",
+              "description": "A full working example of a system exclusive message for the device"
+            },
+            "sysexEnd": {
+              "type": "string",
+              "description": "Last bit in sysex messages, typically F7"
+            },
+            "sysexStart": {
+              "type": "string",
+              "description": "First bit in sysex messages, typically F0"
+            }
+          }
+        },
+        "version": {
+          "type": "string",
+          "description": "The firmware or software version"
+        }
+      },
+      "required": [
+        "displayName"
+      ]
+    },
+    "displayName": {
+      "type": "string",
+      "description": "The display name of the specification, typically used for search results"
+    },
+    "implementationVersion": {
+      "type": "string",
+      "description": "The version of this specification"
+    },
+    "nrpnCommands": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "The specification for NRPN commands",
+        "title": "NonRegisteredParameterNumber",
+        "properties": {
+          "additionalInfo": {
+            "type": "string",
+            "description": "Additional info that may be useful"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the control change"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the function of the control change"
+          },
+          "parameterNumber": {
+            "type": "integer",
+            "description": "The NRPN parameter number",
+            "maximum": 16383.0,
+            "minimum": 0.0
+          },
+          "valueRange": {
+            "type": "object",
+            "description": "The 14-bit value range",
+            "title": "FourteenBitValueRange",
+            "properties": {
+              "discreteValues": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "description": "A 14-bit name/value pair",
+                  "title": "DiscreteFourteenBitValue",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "14-bit value name"
+                    },
+                    "value": {
+                      "type": "integer",
+                      "description": "14-bit value",
+                      "maximum": 16383.0,
+                      "minimum": 0.0
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "value"
+                  ]
+                },
+                "description": "A list of special one-off values outside of the normal value range"
+              },
+              "max": {
+                "type": "integer",
+                "description": "Maximum value",
+                "maximum": 16383.0,
+                "minimum": 0.0
+              },
+              "min": {
+                "type": "integer",
+                "description": "Minimum value",
+                "maximum": 16383.0,
+                "minimum": 0.0
+              }
+            },
+            "required": [
+              "max",
+              "min"
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "parameterNumber",
+          "valueRange"
+        ]
+      },
+      "description": "The available NRPN commands for the specification"
+    },
+    "receives": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "NOTE_NUMBER",
+          "PROGRAM_CHANGE",
+          "VELOCITY_NOTE_ON",
+          "VELOCITY_NOTE_OFF",
+          "CHANNEL_PRESSURE",
+          "POLY_PRESSURE",
+          "PITCH_BEND",
+          "CLOCK"
+        ],
+        "type": "string"
+      },
+      "description": "The command types that can be received"
+    },
+    "rpnCommands": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "The specification for RPN commands",
+        "title": "RegisteredParameterNumber",
+        "properties": {
+          "additionalInfo": {
+            "type": "string",
+            "description": "Additional info that may be useful"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the control change"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the function of the control change"
+          },
+          "parameterNumber": {
+            "type": "integer",
+            "description": "The RPN parameter number",
+            "maximum": 16383.0,
+            "minimum": 0.0
+          },
+          "valueRange": {
+            "type": "object",
+            "description": "The 14-bit value range",
+            "title": "FourteenBitValueRange",
+            "properties": {
+              "discreteValues": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "description": "A 14-bit name/value pair",
+                  "title": "DiscreteFourteenBitValue",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "14-bit value name"
+                    },
+                    "value": {
+                      "type": "integer",
+                      "description": "14-bit value",
+                      "maximum": 16383.0,
+                      "minimum": 0.0
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "value"
+                  ]
+                },
+                "description": "A list of special one-off values outside of the normal value range"
+              },
+              "max": {
+                "type": "integer",
+                "description": "Maximum value",
+                "maximum": 16383.0,
+                "minimum": 0.0
+              },
+              "min": {
+                "type": "integer",
+                "description": "Minimum value",
+                "maximum": 16383.0,
+                "minimum": 0.0
+              }
+            },
+            "required": [
+              "max",
+              "min"
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "parameterNumber",
+          "valueRange"
+        ]
+      },
+      "description": "The available RPN commands for the specification"
+    },
+    "schemaVersion": {
+      "type": "string",
+      "description": "The version of the schema; should match the version specified in the id attribute",
+      "pattern": "0.0.1"
+    },
+    "sysexCommands": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "The specification for system exclusive commands",
+        "title": "SystemExclusive",
+        "properties": {
+          "additionalInfo": {
+            "type": "string",
+            "description": "Any additional info that may be useful"
+          },
+          "description": {
+            "type": "string",
+            "description": "A description of the sysex command"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the function which this sysex command performs"
+          },
+          "substitutableMessage": {
+            "type": "string",
+            "description": "The full system exclusive message for this command, using designations such as dd as a substitute for any data value bits; for example: F0 43 10 7F 1C 03 00 00 01 dd F7, or F0 43 10 7F 1C 03 00 00 11 dd dd F7"
+          },
+          "substitutableValues": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "description": "Details about a value that can be used within a substitutable sysex message",
+              "title": "SysexValue",
+              "properties": {
+                "description": {
+                  "type": "string",
+                  "description": "A description of the value"
+                },
+                "index": {
+                  "type": "integer",
+                  "description": "The zero-based index of the value within the sysex message"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "A name for the value"
+                },
+                "substituteFor": {
+                  "type": "string",
+                  "description": "The placeholder value being used in the substitutable sysex message"
+                },
+                "valueRange": {
+                  "type": "object",
+                  "description": "Defines multiple min, max, and special data values for this sysex value",
+                  "title": "HexValueRange",
+                  "properties": {
+                    "discreteValues": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "A hex name/value pair",
+                        "title": "DiscreteHexValue",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "Hex value name"
+                          },
+                          "value": {
+                            "type": "string",
+                            "description": "Hex value",
+                            "pattern": "^[a-fA-F0-9]+$"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "value"
+                        ]
+                      },
+                      "description": "A list of one-off hex values outside the normal range"
+                    },
+                    "max": {
+                      "type": "string",
+                      "description": "Max value in hex format",
+                      "pattern": "^[a-fA-F0-9]+$"
+                    },
+                    "min": {
+                      "type": "string",
+                      "description": "Min value in hex format",
+                      "pattern": "^[a-fA-F0-9]+$"
+                    }
+                  },
+                  "required": [
+                    "max",
+                    "min"
+                  ]
+                },
+                "valueType": {
+                  "enum": [
+                    "MIDI_CHANNEL",
+                    "DATA_VALUE"
+                  ],
+                  "type": "string",
+                  "description": "Defines the type of value, which is typically DATA_VALUE"
+                }
+              },
+              "required": [
+                "index",
+                "substituteFor",
+                "valueRange",
+                "valueType"
+              ]
+            },
+            "description": "A list that describes the values to be used within a substitutableMessage"
+          }
+        },
+        "required": [
+          "name",
+          "substitutableMessage",
+          "substitutableValues"
+        ]
+      },
+      "description": "The available sysex commands for the specification"
+    },
+    "title": {
+      "type": "string",
+      "description": "The title of the specification"
+    },
+    "transmits": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "NOTE_NUMBER",
+          "PROGRAM_CHANGE",
+          "VELOCITY_NOTE_ON",
+          "VELOCITY_NOTE_OFF",
+          "CHANNEL_PRESSURE",
+          "POLY_PRESSURE",
+          "PITCH_BEND",
+          "CLOCK"
+        ],
+        "type": "string"
+      },
+      "description": "The command types that can be transmitted"
+    }
+  },
+  "required": [
+    "device",
+    "displayName",
+    "implementationVersion",
+    "receives",
+    "schemaVersion",
+    "title",
+    "transmits"
+  ],
+  "$schema": "http://json-schema.org/draft-04/schema#"
+}
