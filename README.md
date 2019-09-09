@@ -1,5 +1,5 @@
-# Open MIDI Realtime Schema
-The Open MIDI Realtime Schema is an open-source [JSON schema](https://json-schema.org/) for defining and describing MIDI parameters for apps, software, and devices that can be controlled in real-time.
+# Open MIDI Realtime Control Schema
+The Open MIDI Realtime Control Schema is an open-source [JSON schema](https://json-schema.org/) for defining and describing MIDI parameters for apps, software, and devices that can be controlled in real-time.
 
 For manufactuers and developers, creating documents that adhere to the schema provides the ability to:
 
@@ -19,4 +19,4 @@ In addition, there are also tools that can generate code stubs, which can be use
 ### Existing documents
 Open source specs that conform to the schema can be found here: [https://github.com/eokuwwy/open-midi-rtc-specs](https://github.com/eokuwwy/open-midi-rtc-specs)   
 
-[See the list](./list.md) of apps, software, and hardware that use the Open MIDI Realtime Schema.
+[See the list](./list.md) of apps, software, and hardware that use the Open MIDI Realtime Control Schema.
