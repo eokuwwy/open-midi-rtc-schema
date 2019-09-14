@@ -1,1 +1,6 @@
 tools/quicktype
+tools/schema-tools/output
+tools/schema-tools/out
+tools/schema-tools/.gradle
+tools/schema-tools/.idea
+tools/schema-tools/build
