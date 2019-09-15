@@ -1,0 +1,6 @@
+cc,Filter Cutoff,74,,0,127,,,,,
+cc,Filter Drive,75,,,,,,,,
+nrpn,Filter Res,31,1,0,255,,,,,
+nrpn,Env Filter Depth,8,1,0,164,,,,,
+sysex,PWM Depth,F0 41 32 cc 0F dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,5,00,7F
+sysex,DCO Level,F0 41 32 01 0F dd F7,DATA_VALUE,5,00,7F,,,,
