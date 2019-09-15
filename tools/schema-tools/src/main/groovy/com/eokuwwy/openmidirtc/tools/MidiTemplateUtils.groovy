@@ -12,6 +12,7 @@ import io.quicktype.DeviceType
 import io.quicktype.NonRegisteredParameterNumber
 import io.quicktype.NrpnCommandValueRange
 import io.quicktype.OpenMIDIRealtimeSpecification
+import io.quicktype.SysexValue
 import io.quicktype.SystemExclusive
 
 class MidiTemplateUtils {
@@ -108,6 +109,21 @@ class MidiTemplateUtils {
             name: name,
             parameterNumber: number,
             valueRange: new NrpnCommandValueRange(min: min, max: max)
+        )
+    }
+
+    /**
+     * Convenience method for building a sysex command instance
+     * @param name
+     * @param substitutableMessage
+     * @param substitutableValues
+     * @return
+     */
+    static SystemExclusive sysexIt(String name, String substitutableMessage, List<SysexValue> substitutableValues) {
+        new SystemExclusive(
+            name: name,
+            substitutableMessage: substitutableMessage,
+            substitutableValues: substitutableValues as SysexValue[]
         )
     }
 

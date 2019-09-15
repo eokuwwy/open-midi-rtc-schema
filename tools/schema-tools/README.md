@@ -14,7 +14,7 @@ and all dependencies will be downloaded.
 
  - Schema Doc generation from a CSV file
  
-   You can create an open-midi-rtc-schema doc from a simple CSV file using the `generateFromCsv` gradle task. The CSV file should follow the following column format:
+   You can create an open-midi-rtc-schema doc from a simple CSV file using the `generateFromSimpleCsv` (CC only) or `generateFromCsv` (CC, Sysex, and NRPN) gradle task. The CSV file should follow the following column format:
    
    `cc_number,parameter_name,min_value,max_value`
    
@@ -23,7 +23,11 @@ and all dependencies will be downloaded.
    Example Usage:
    
    ```
-   ./gradlew generateFromCsv --args='examples/csv/ju-06a.csv ju-06a'
+   ./gradlew generateFromSimpleCsv --args='examples/csv/ju-06a.csv ju-06a'
+   ```
+   
+   ```
+   ./gradlew generateFromCsv --args='examples/csv/midi-machine.csv midi-machine DRUM_MACHINE Eokuwwy VaporDrumPhantom 00017F eokuwwy.com'
    ```
    
    The generated files will appear in the `outputs` directory.

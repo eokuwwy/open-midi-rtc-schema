@@ -22,16 +22,17 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
+task generateFromSimpleCsv(dependsOn: 'classes', type: JavaExec) {
+    main = 'com.eokuwwy.openmidirtc.tools.CsvCCImporter'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
 task generateFromCsv(dependsOn: 'classes', type: JavaExec) {
-    // Main class that runs the Groovy
-    // command line.
     main = 'com.eokuwwy.openmidirtc.tools.CsvImporter'
     classpath = sourceSets.main.runtimeClasspath
 }
 
 task generateFromSquarp(dependsOn: 'classes', type: JavaExec) {
-    // Main class that runs the Groovy
-    // command line.
     main = 'com.eokuwwy.openmidirtc.tools.SquarpImporter'
     classpath = sourceSets.main.runtimeClasspath
 }
