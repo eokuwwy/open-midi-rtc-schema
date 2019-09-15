@@ -59,6 +59,7 @@ and all dependencies will be downloaded.
    <br>
    <em>Further Sysex Explanation</em><br>
    Let's breakdown this line in the above example:
+   
    `sysex,PWM Depth,F0 41 32 cc 0F dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,5,00,7F`
    
    The sysex message `F0 41 32 cc 0F dd F7` has 2 substitutable values, `cc` and `dd`, which are at indexes `3` and `5` respectively. Indexes start at 0. The type of the first value is `MIDI_CHANNEL`, and it has a min and max of `(0,16)`, which is `(00,0F)` in hex. The second value type is `DATA_VALUE`, and its range is `(0,127)`, which is `(00,7F)` in hex. 
