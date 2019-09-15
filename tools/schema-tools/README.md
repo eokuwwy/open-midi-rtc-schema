@@ -45,9 +45,9 @@ and all dependencies will be downloaded.
    
    ```
    cc,Filter Cutoff,74,,0,127,,,,,
- 	nrpn,Filter Res,31,1,0,255,,,,,
- 	sysex,PWM Depth,F0 41 32 cc 0F dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,5,00,7F
- 	sysex,DCO Level,F0 41 32 01 0F dd F7,DATA_VALUE,5,00,7F,,,,
+   nrpn,Filter Res,31,1,0,255,,,,,
+   sysex,PWM Depth,F0 41 32 cc 0F dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,5,00,7F
+   sysex,DCO Level,F0 41 32 01 0F dd F7,DATA_VALUE,5,00,7F,,,,
    ```
    
    Example Usage:
@@ -79,8 +79,6 @@ and all dependencies will be downloaded.
    ```
    
    <br>
-   The generated files will appear in the `outputs` directory.
-   <br>
    
    The CSV generation tasks above take the following arguments (in the order specified):
    
@@ -93,6 +91,9 @@ and all dependencies will be downloaded.
    Manufacturer ID (optional)
    URL (optional)
    ```
+   
+   The generated files will appear in the `outputs` directory.
+   
    <br>
 - HTML doc generation from an existing schema doc file 
 
