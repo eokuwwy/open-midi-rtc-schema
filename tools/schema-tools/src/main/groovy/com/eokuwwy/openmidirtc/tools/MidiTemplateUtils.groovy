@@ -166,11 +166,20 @@ class MidiTemplateUtils {
         writeDocumentationFromSpecFile(name)
     }
 
-    static void writeDocumentationFromSpecFile(String specName) {
-        File f = new File("${BASE_OUTPUT_DIR}/${specName}.json")
+    static void writeDocumentationFromSpecFile(
+        String specFileName,
+        String outputName = null,
+        boolean overrideDefaultPath = false
+    ) {
+        File f = overrideDefaultPath ?
+            new File(specFileName) :
+            new File("${BASE_OUTPUT_DIR}/${specFileName}.json")
+
         OpenMIDIRealtimeSpecification midiFile = new ObjectMapper().readValue(f, OpenMIDIRealtimeSpecification)
 
-        String title = "${midiFile.displayName} Controllable Parameters\n"
+        String titlePrefix = (midiFile.device.manufacturer + " " ?: "") + (midiFile.device.displayName + ": " ?: "")
+
+        String title = "$titlePrefix Controllable Parameters\n"
         StringBuilder sb = new StringBuilder("<html><head><title>$title</title></head><body>\n")
         sb.append("<style>\n")
         sb.append("tr, td {\n")
@@ -256,7 +265,8 @@ class MidiTemplateUtils {
 
         sb.append("</body></html>\n")
 
-        File doc = new File("${BASE_OUTPUT_DIR}/${specName}.html")
+        String outputPath = outputName ?: "${BASE_OUTPUT_DIR}/${specFileName}.html"
+        File doc = new File(outputPath)
         doc.write(sb.toString())
     }
 }

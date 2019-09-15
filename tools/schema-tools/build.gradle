@@ -36,3 +36,8 @@ task generateFromSquarp(dependsOn: 'classes', type: JavaExec) {
     main = 'com.eokuwwy.openmidirtc.tools.SquarpImporter'
     classpath = sourceSets.main.runtimeClasspath
 }
+
+task generateDocForSpec(dependsOn: 'classes', type: JavaExec) {
+    main = 'com.eokuwwy.openmidirtc.tools.DocWriter'
+    classpath = sourceSets.main.runtimeClasspath
+}

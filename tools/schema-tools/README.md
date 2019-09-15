@@ -56,3 +56,12 @@ and all dependencies will be downloaded.
    Manufacturer ID (optional)
    URL (optional)
    ```
+   <br>
+- HTML doc generation from an existing schema doc file 
+
+	You can generate some simple HTML documentation for any spec file with the following gradle task: `generateDocForSpec`. Simply supply the input and output file names.
+	
+	Usage:
+	```
+	./gradlew generateDocForSpec --args='output/midi-machine.json output/midi-machine-doc.html'
+	```  
