@@ -80,7 +80,7 @@ and all dependencies will be downloaded.
    
    <br>
    
-   The CSV generation tasks above take the following arguments (in the order specified):
+   The spec generation tasks above take the following arguments (in the order specified):
    
    ```
    Input filename (required)
