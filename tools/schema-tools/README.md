@@ -90,13 +90,26 @@ and all dependencies will be downloaded.
    Display name (optional)
    Manufacturer ID (optional)
    URL (optional)
+   Transmit list (optional, comma separated no spaces)
+   Receive list (optional, comma separated no spaces)
    ```
    
-   The generated files will appear in the `outputs` directory.
+   The generated files will appear in the 
+   `outputs` 
+   directory.
    
    <br>
-- HTML doc generation from an existing schema doc file 
+- Schema doc generation example with all arguments
 
+  Here is an example using all arguments defined above:
+  
+
+  ```
+  ./gradlew generateFromCsv --args='examples/csv/midi-machine.csv midi-machine DRUM_MACHINE Eokuwwy VaporDrumPhantom 00017F eokuwwy.com VELOCITY_NOTE_ON,NOTE_NUMBER VELOCITY_NOTE_ON,CLOCK,CHANNEL_PRESSURE,PITCH_BEND,NOTE_NUMBER'
+  ```
+
+   <br>
+- HTML doc generation from an existing schema doc file
 	You can generate some simple HTML documentation for any spec file with the following gradle task: `generateDocForSpec`. Simply supply the input and output file names.
 	
 	Usage:

@@ -14,7 +14,6 @@ device:
   model: "Default"
   name: "Default"
   version: "1.0.0"
-  additionalProperties: {}
 receives:
 - "NOTE_NUMBER"
 - "VELOCITY_NOTE_ON"
@@ -31,7 +30,6 @@ transmits:
 - "PROGRAM_CHANGE"
 - "CLOCK"
 - "CHANNEL_PRESSURE"
-additionalProperties: {}
 sysexCommands: []
 nrpnCommands: []
 rpnCommands: []
@@ -43,8 +41,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 2
   description: "Originally intended for modulation from a breath input control"
   name: "Breath Controller"
@@ -52,8 +48,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 4
   description: "Sends a continuous stream of values based on the pedal position"
   name: "Foot Controller"
@@ -61,8 +55,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 5
   description: "Controls the portamento rate"
   name: "Portamento Time"
@@ -70,8 +62,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 7
   description: "Channel volume control"
   name: "Volume"
@@ -79,8 +69,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 8
   description: "Control left and right balance for stereo patches"
   name: "Balance"
@@ -88,8 +76,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 10
   description: "Control left and right balance for mono patches"
   name: "Panning"
@@ -97,8 +83,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 11
   description: "Typically used as a percentage of volume (CC7)"
   name: "Expression"
@@ -106,8 +90,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 12
   description: "Typically used to control an effect parameter"
   name: "Effect Param 1"
@@ -115,8 +97,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 13
   description: "Typically used to control an effect parameter"
   name: "Effect Param 2"
@@ -124,8 +104,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 64
   description: "Sustain Control"
   name: "Damper Pedal"
@@ -133,8 +111,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 65
   description: "Toggles portamento"
   name: "Portamento On/Off"
@@ -142,8 +118,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 66
   description: "Toggles sostenuto"
   name: "Sostenuto On/Off"
@@ -151,8 +125,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 67
   description: "Softens the volume"
   name: "Soft Pedal On/Off"
@@ -160,8 +132,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 68
   description: "Toggles legato mode"
   name: "Legato On/Off"
@@ -169,8 +139,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 69
   description: "Different type of note hold mode"
   name: "Hold 2 On/Off"
@@ -178,8 +146,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 71
   description: "Generally used for filter resonance"
   name: "Filter Resonance"
@@ -187,8 +153,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 72
   description: "Generally used for amp envelope release"
   name: "Release Time"
@@ -196,8 +160,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 73
   description: "Generally used for amp envelope attack"
   name: "Attack Time"
@@ -205,8 +167,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 74
   description: "Generally used for filter frequency cutoff"
   name: "Filter Cutoff"
@@ -214,8 +174,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 84
   description: "The amount of portamento"
   name: "Portamento Depth"
@@ -223,8 +181,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 91
   description: "Depth of effect 1"
   name: "Effect 1 Depth"
@@ -232,8 +188,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 92
   description: "Depth of effect 2"
   name: "Effect 2 Depth"
@@ -241,8 +195,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 93
   description: "Depth of effect 3"
   name: "Effect 3 Depth"
@@ -250,8 +202,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 94
   description: "Depth of effect 4"
   name: "Effect 4 Depth"
@@ -259,8 +209,6 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}
 - controlChangeNumber: 95
   description: "Depth of effect 5"
   name: "Effect 5 Depth"
@@ -268,5 +216,3 @@ controlChangeCommands:
     discreteValues: []
     max: 127
     min: 0
-    additionalProperties: {}
-  additionalProperties: {}

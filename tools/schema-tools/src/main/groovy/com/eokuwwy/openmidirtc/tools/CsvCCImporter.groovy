@@ -30,6 +30,26 @@ class CsvCCImporter {
         String displayName = args.length > 4 ? args[4] : ""
         String manID = args.length > 5 ? args[5] : ""
         String url = args.length > 6 ? args[6] : ""
+        String transmits = args.length > 7 ? args[7] : ""
+        String receives = args.length > 8 ? args[8] : ""
+        List<Transmit> trans = []
+        List<Receive> recs = []
+
+        transmits.split(",")?.each {
+            try {
+                trans.add(Transmit.forValue(it.toUpperCase()))
+            } catch (Exception e) {
+                // eat
+            }
+        }
+
+        receives.split(",")?.each {
+            try {
+                recs.add(Receive.forValue(it.toUpperCase()))
+            } catch (Exception e) {
+                // eat
+            }
+        }
 
         CsvCCImporter csvImporter = new CsvCCImporter()
 
@@ -40,7 +60,9 @@ class CsvCCImporter {
             manufacturer,
             displayName,
             manID,
-            url
+            url,
+            trans,
+            recs
         )
     }
 
@@ -66,7 +88,7 @@ class CsvCCImporter {
 
         File f = new File(filepath)
 
-        String deviceName = ""
+        String deviceName = displayName ?: ""
 
         List<ControlChange> ccCommands = []
 

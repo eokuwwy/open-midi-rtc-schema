@@ -13,8 +13,7 @@
     "manufacturer": "N/A",
     "model": "Default",
     "name": "Default",
-    "version": "1.0.0",
-    "additionalProperties": {}
+    "version": "1.0.0"
   },
   "receives": [
     "NOTE_NUMBER",
@@ -34,7 +33,6 @@
     "CLOCK",
     "CHANNEL_PRESSURE"
   ],
-  "additionalProperties": {},
   "sysexCommands": [],
   "nrpnCommands": [],
   "rpnCommands": [],
@@ -46,10 +44,8 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
-      },
-      "additionalProperties": {}
+        "min": 0
+      }
     },
     {
       "controlChangeNumber": 2,
@@ -58,10 +54,8 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
-      },
-      "additionalProperties": {}
+        "min": 0
+      }
     },
     {
       "controlChangeNumber": 4,
@@ -70,10 +64,8 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
-      },
-      "additionalProperties": {}
+        "min": 0
+      }
     },
     {
       "controlChangeNumber": 5,
@@ -82,10 +74,8 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
-      },
-      "additionalProperties": {}
+        "min": 0
+      }
     },
     {
       "controlChangeNumber": 7,
@@ -94,10 +84,8 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
-      },
-      "additionalProperties": {}
+        "min": 0
+      }
     },
     {
       "controlChangeNumber": 8,
@@ -106,10 +94,9 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
+        "min": 0
       },
-      "additionalProperties": {}
+
     },
     {
       "controlChangeNumber": 10,
@@ -118,10 +105,9 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
+        "min": 0
       },
-      "additionalProperties": {}
+
     },
     {
       "controlChangeNumber": 11,
@@ -130,10 +116,8 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
-      },
-      "additionalProperties": {}
+        "min": 0
+      }
     },
     {
       "controlChangeNumber": 12,
@@ -142,10 +126,8 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
-      },
-      "additionalProperties": {}
+        "min": 0
+      }
     },
     {
       "controlChangeNumber": 13,
@@ -154,10 +136,8 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
-      },
-      "additionalProperties": {}
+        "min": 0
+      }
     },
     {
       "controlChangeNumber": 64,
@@ -166,10 +146,8 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
-      },
-      "additionalProperties": {}
+        "min": 0
+      }
     },
     {
       "controlChangeNumber": 65,
@@ -178,10 +156,8 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
-      },
-      "additionalProperties": {}
+        "min": 0
+      }
     },
     {
       "controlChangeNumber": 66,
@@ -190,10 +166,8 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
-      },
-      "additionalProperties": {}
+        "min": 0
+      }
     },
     {
       "controlChangeNumber": 67,
@@ -202,10 +176,8 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
-      },
-      "additionalProperties": {}
+        "min": 0
+      }
     },
     {
       "controlChangeNumber": 68,
@@ -214,10 +186,8 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
-      },
-      "additionalProperties": {}
+        "min": 0
+      }
     },
     {
       "controlChangeNumber": 69,
@@ -226,10 +196,8 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
-      },
-      "additionalProperties": {}
+        "min": 0
+      }
     },
     {
       "controlChangeNumber": 71,
@@ -238,10 +206,8 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
-      },
-      "additionalProperties": {}
+        "min": 0
+      }
     },
     {
       "controlChangeNumber": 72,
@@ -250,10 +216,8 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
-      },
-      "additionalProperties": {}
+        "min": 0
+      }
     },
     {
       "controlChangeNumber": 73,
@@ -262,10 +226,8 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
-      },
-      "additionalProperties": {}
+        "min": 0
+      }
     },
     {
       "controlChangeNumber": 74,
@@ -274,10 +236,8 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
-      },
-      "additionalProperties": {}
+        "min": 0
+      }
     },
     {
       "controlChangeNumber": 84,
@@ -286,10 +246,8 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
-      },
-      "additionalProperties": {}
+        "min": 0
+      }
     },
     {
       "controlChangeNumber": 91,
@@ -298,10 +256,8 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
-      },
-      "additionalProperties": {}
+        "min": 0
+      }
     },
     {
       "controlChangeNumber": 92,
@@ -310,10 +266,8 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
-      },
-      "additionalProperties": {}
+        "min": 0
+      }
     },
     {
       "controlChangeNumber": 93,
@@ -322,10 +276,8 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
-      },
-      "additionalProperties": {}
+        "min": 0
+      }
     },
     {
       "controlChangeNumber": 94,
@@ -334,10 +286,8 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
-      },
-      "additionalProperties": {}
+        "min": 0
+      }
     },
     {
       "controlChangeNumber": 95,
@@ -346,10 +296,8 @@
       "valueRange": {
         "discreteValues": [],
         "max": 127,
-        "min": 0,
-        "additionalProperties": {}
-      },
-      "additionalProperties": {}
+        "min": 0
+      }
     }
   ]
 }
