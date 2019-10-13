@@ -116,3 +116,8 @@ and all dependencies will be downloaded.
 	```
 	./gradlew generateDocForSpec --args='output/midi-machine.json output/midi-machine-doc.html'
 	```  
+	
+### Web MIDI
+
+A great way to test out schema specs is to use the Web MIDI utility. To get started, open [./web/html/index.html](./web/html/index.html) in any modern browser.<br>
+Choose a `.json` file that adheres to the schema, and sliders will appear for all defined CC parameters. You can now connect a device and test the parameters by moving the sliders. 
