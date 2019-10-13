@@ -19,6 +19,10 @@
 <script>
     var indent = 0;
 
+    function handleSliderChange(ccNumber, value) {
+        document.getElementById("cc_" + ccNumber + "_output").innerHTML = value;
+    }
+
     function appendObjectEntries(obj) {
         var newStr = "";
 
@@ -63,7 +67,8 @@
                 "\" min=\"" + param.valueRange.min +
                 "\" max=\"" + param.valueRange.max +
                 "\" value=\"" + param.valueRange.min +
-                "\" />";
+                "\" onclick=\"handleSliderChange(" + param.controlChangeNumber + ", this.value);\"/>&nbsp;&nbsp;";
+            str += "<span id=\"cc_" + param.controlChangeNumber + "_output\"></span>";
         }
 
         document.getElementById('controls').innerHTML = str;
