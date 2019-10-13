@@ -95,8 +95,7 @@
         "discreteValues": [],
         "max": 127,
         "min": 0
-      },
-
+      }
     },
     {
       "controlChangeNumber": 10,
@@ -106,8 +105,7 @@
         "discreteValues": [],
         "max": 127,
         "min": 0
-      },
-
+      }
     },
     {
       "controlChangeNumber": 11,
