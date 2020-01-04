@@ -216,10 +216,14 @@ class CsvImporter {
 
         int minVal = 0
         int maxVal = 127
+        int lsb = -1
 
         try {
             int msb = Integer.parseInt(paramMsb)
-            int lsb = Integer.parseInt(paramLsb)
+
+            if (!paramLsb.isEmpty()) {
+                lsb = Integer.parseInt(paramLsb)
+            }
 
             if (!minValue.isEmpty()) {
                 minVal = Integer.parseInt(minValue)
@@ -229,7 +233,11 @@ class CsvImporter {
                 maxVal = Integer.parseInt(maxValue)
             }
 
-            return nrpnIt(paramName, msb, lsb, minVal, maxVal)
+            if (lsb > -1) {
+                return nrpnIt(paramName, msb, lsb, minVal, maxVal)
+            } else {
+                return nrpnIt(msb, paramName, minVal, maxVal)
+            }
         } catch(Exception e) {
             return null
         }
