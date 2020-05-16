@@ -26,11 +26,15 @@ and all dependencies will be downloaded.
    
    Min and max value will be defaulted to 0 and 127 if left blank.
    
-   Example Usage:
+   Examples:
    
    
    ```
    ./gradlew generateFromSimpleCsv --args='examples/csv/ju-06a.csv ju-06a'
+   ```
+   
+   ```
+   ./gradlew generateFromSimpleCsv --args='examples/csv/sh-201.csv sh-201 SYNTHESIZER Roland SH-201 41 roland.com VELOCITY_NOTE_ON,VELOCITY_NOTE_OFF,NOTE_NUMBER,PROGRAM_CHANGE,PITCH_BEND VELOCITY_NOTE_ON,VELOCITY_NOTE_OFF,PITCH_BEND,NOTE_NUMBER,PROGRAM_CHANGE'
    ```
    <br>
    The column format for the gradle task that handles multiple parameter types (CC, Sysex, and NRPN) is significantly more complex, and is as follows:
