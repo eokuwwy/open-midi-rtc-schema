@@ -1,0 +1,19 @@
+1,Modulation Wheel,,
+64,Sustain Pedal,0,64
+70,String Registration,0,2
+71,String Octaves,,
+72,String Release,,
+73,Crescendo,,
+74,String Ensemble Type,0,2
+75,String Ensemble,,
+76,Solo Tone,,
+77,Solo Tremolo,,
+78,Solo Split,0,2
+79,Solo Sustain,0,1
+80,Solo Attack,,
+81,Solo Decay,,
+82,Balance,,
+91,FX Type,0,2
+92,FX Animate amount,,
+93,FX Phaser amount,,
+94,FX Reverb amount,,

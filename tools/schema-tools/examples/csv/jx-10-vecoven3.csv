@@ -1,0 +1,163 @@
+nrpn,DCO 1 Range Upper,0,0,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 1 Range Lower,1,0,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 1 Range Both,2,0,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 1 Wave Upper,0,1,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 1 Wave Lower,1,1,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 1 Wave Both,2,1,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 1 Tune Upper,0,2,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 1 Tune Lower,1,2,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 1 Tune Both,2,2,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 1 LFO Upper,0,3,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 1 LFO Lower,1,3,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 1 LFO Both,2,3,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 1 Env Upper,0,4,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 1 Env Lower,1,4,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 1 Env Both,2,4,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 2 Range Upper,0,5,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 2 Range Lower,1,5,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 2 Range Both,2,5,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 2 Wave Upper,0,6,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 2 Wave Lower,1,6,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 2 Wave Both,2,6,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 2 Xmod Upper,0,7,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 2 Xmod Lower,1,7,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 2 Xmod Both,2,7,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 2 Tune Upper,0,8,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 2 Tune Lower,1,8,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 2 Tune Both,2,8,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 2 Fine Tune Upper,0,9,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 2 Fine Tune Lower,1,9,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 2 Fine Tune Both,2,9,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 2 LFO Upper,0,10,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 2 LFO Lower,1,10,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 2 LFO Both,2,10,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 2 Env Upper,0,11,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 2 Env Lower,1,11,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 2 Env Both,2,11,0,127,0,0,MSB_ONLY,,
+nrpn,DCO Dynamics Upper,0,15,0,127,0,0,MSB_ONLY,,
+nrpn,DCO Dynamics Lower,1,15,0,127,0,0,MSB_ONLY,,
+nrpn,DCO Dynamics Both,2,15,0,127,0,0,MSB_ONLY,,
+nrpn,DCO Env Mode Upper,0,16,0,127,0,0,MSB_ONLY,,
+nrpn,DCO Env Mode Lower,1,16,0,127,0,0,MSB_ONLY,,
+nrpn,DCO Env Mode Both,2,16,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 1 Level Upper,0,17,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 1 Level Lower,1,17,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 1 Level Both,2,17,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 2 Level Upper,0,18,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 2 Level Lower,1,18,0,127,0,0,MSB_ONLY,,
+nrpn,DCO 2 Level Both,2,18,0,127,0,0,MSB_ONLY,,
+nrpn,Mixer Env Upper,0,19,0,127,0,0,MSB_ONLY,,
+nrpn,Mixer Env Lower,1,19,0,127,0,0,MSB_ONLY,,
+nrpn,Mixer Env Both,2,19,0,127,0,0,MSB_ONLY,,
+nrpn,Mixer Dynamics Upper,0,20,0,127,0,0,MSB_ONLY,,
+nrpn,Mixer Dynamics Lower,1,20,0,127,0,0,MSB_ONLY,,
+nrpn,Mixer Dynamics Both,2,20,0,127,0,0,MSB_ONLY,,
+nrpn,Mixer Env Mode Upper,0,21,0,127,0,0,MSB_ONLY,,
+nrpn,Mixer Env Mode Lower,1,21,0,127,0,0,MSB_ONLY,,
+nrpn,Mixer Env Mode Both,2,21,0,127,0,0,MSB_ONLY,,
+nrpn,HPF Cutoff Upper,0,22,0,127,0,0,MSB_ONLY,,
+nrpn,HPF Cutoff Lower,1,22,0,127,0,0,MSB_ONLY,,
+nrpn,HPF Cutoff Both,2,22,0,127,0,0,MSB_ONLY,,
+nrpn,LPF Cutoff Upper,0,23,0,127,0,0,MSB_ONLY,,
+nrpn,LPF Cutoff Lower,1,23,0,127,0,0,MSB_ONLY,,
+nrpn,LPF Cutoff Both,2,23,0,127,0,0,MSB_ONLY,,
+nrpn,Resonance Upper,0,24,0,127,0,0,MSB_ONLY,,
+nrpn,Resonance Lower,1,24,0,127,0,0,MSB_ONLY,,
+nrpn,Resonance Both,2,24,0,127,0,0,MSB_ONLY,,
+nrpn,VCF LFO Upper,0,25,0,127,0,0,MSB_ONLY,,
+nrpn,VCF LFO Lower,1,25,0,127,0,0,MSB_ONLY,,
+nrpn,VCF LFO Both,2,25,0,127,0,0,MSB_ONLY,,
+nrpn,VCF Env Upper,0,26,0,127,0,0,MSB_ONLY,,
+nrpn,VCF Env Lower,1,26,0,127,0,0,MSB_ONLY,,
+nrpn,VCF Env Both,2,26,0,127,0,0,MSB_ONLY,,
+nrpn,VCF Key Upper,0,27,0,127,0,0,MSB_ONLY,,
+nrpn,VCF Key Lower,1,27,0,127,0,0,MSB_ONLY,,
+nrpn,VCF Key Both,2,27,0,127,0,0,MSB_ONLY,,
+nrpn,VCF Dynamics Upper,0,28,0,127,0,0,MSB_ONLY,,
+nrpn,VCF Dynamics Lower,1,28,0,127,0,0,MSB_ONLY,,
+nrpn,VCF Dynamics Both,2,28,0,127,0,0,MSB_ONLY,,
+nrpn,VCF Env Mode Upper,0,29,0,127,0,0,MSB_ONLY,,
+nrpn,VCF Env Mode Lower,1,29,0,127,0,0,MSB_ONLY,,
+nrpn,VCF Env Mode Both,2,29,0,127,0,0,MSB_ONLY,,
+nrpn,VCA Level Upper,0,30,0,127,0,0,MSB_ONLY,,
+nrpn,VCA Level Lower,1,30,0,127,0,0,MSB_ONLY,,
+nrpn,VCA Level Both,2,30,0,127,0,0,MSB_ONLY,,
+nrpn,VCA Env Mode Upper,0,47,0,127,0,0,MSB_ONLY,,
+nrpn,VCA Env Mode Lower,1,47,0,127,0,0,MSB_ONLY,,
+nrpn,VCA Env Mode Both,2,47,0,127,0,0,MSB_ONLY,,
+nrpn,VCA Dynamics Upper,0,31,0,127,0,0,MSB_ONLY,,
+nrpn,VCA Dynamics Lower,1,31,0,127,0,0,MSB_ONLY,,
+nrpn,VCA Dynamics Both,2,31,0,127,0,0,MSB_ONLY,,
+nrpn,Chorus Upper,0,32,0,127,0,0,MSB_ONLY,,
+nrpn,Chorus Lower,1,32,0,127,0,0,MSB_ONLY,,
+nrpn,Chorus Both,2,32,0,127,0,0,MSB_ONLY,,
+nrpn,LFO Wave Upper,0,33,0,127,0,0,MSB_ONLY,,
+nrpn,LFO Wave Lower,1,33,0,127,0,0,MSB_ONLY,,
+nrpn,LFO Wave Both,2,33,0,127,0,0,MSB_ONLY,,
+nrpn,LFO Delay Upper,0,34,0,127,0,0,MSB_ONLY,,
+nrpn,LFO Delay Lower,1,34,0,127,0,0,MSB_ONLY,,
+nrpn,LFO Delay Both,2,34,0,127,0,0,MSB_ONLY,,
+nrpn,LFO Rate Upper,0,35,0,127,0,0,MSB_ONLY,,
+nrpn,LFO Rate Lower,1,35,0,127,0,0,MSB_ONLY,,
+nrpn,LFO Rate Both,2,35,0,127,0,0,MSB_ONLY,,
+nrpn,Env 1 Attack Upper,0,36,0,127,0,0,MSB_ONLY,,
+nrpn,Env 1 Attack Lower,1,36,0,127,0,0,MSB_ONLY,,
+nrpn,Env 1 Attack Both,2,36,0,127,0,0,MSB_ONLY,,
+nrpn,Env 1 Decay Upper,0,37,0,127,0,0,MSB_ONLY,,
+nrpn,Env 1 Decay Lower,1,37,0,127,0,0,MSB_ONLY,,
+nrpn,Env 1 Decay Both,2,37,0,127,0,0,MSB_ONLY,,
+nrpn,Env 1 Sustain Upper,0,38,0,127,0,0,MSB_ONLY,,
+nrpn,Env 1 Sustain Lower,1,38,0,127,0,0,MSB_ONLY,,
+nrpn,Env 1 Sustain Both,2,38,0,127,0,0,MSB_ONLY,,
+nrpn,Env 1 Release Upper,0,39,0,127,0,0,MSB_ONLY,,
+nrpn,Env 1 Release Lower,1,39,0,127,0,0,MSB_ONLY,,
+nrpn,Env 1 Release Both,2,39,0,127,0,0,MSB_ONLY,,
+nrpn,Env 1 Key Upper,0,40,0,127,0,0,MSB_ONLY,,
+nrpn,Env 1 Key Lower,1,40,0,127,0,0,MSB_ONLY,,
+nrpn,Env 1 Key Both,2,40,0,127,0,0,MSB_ONLY,,
+nrpn,Env 2 Attack Upper,0,41,0,127,0,0,MSB_ONLY,,
+nrpn,Env 2 Attack Lower,1,41,0,127,0,0,MSB_ONLY,,
+nrpn,Env 2 Attack Both,2,41,0,127,0,0,MSB_ONLY,,
+nrpn,Env 2 Decay Upper,0,42,0,127,0,0,MSB_ONLY,,
+nrpn,Env 2 Decay Lower,1,42,0,127,0,0,MSB_ONLY,,
+nrpn,Env 2 Decay Both,2,42,0,127,0,0,MSB_ONLY,,
+nrpn,Env 2 Sustain Upper,0,43,0,127,0,0,MSB_ONLY,,
+nrpn,Env 2 Sustain Lower,1,43,0,127,0,0,MSB_ONLY,,
+nrpn,Env 2 Sustain Both,2,43,0,127,0,0,MSB_ONLY,,
+nrpn,Env 2 Release Upper,0,44,0,127,0,0,MSB_ONLY,,
+nrpn,Env 2 Release Lower,1,44,0,127,0,0,MSB_ONLY,,
+nrpn,Env 2 Release Both,2,44,0,127,0,0,MSB_ONLY,,
+nrpn,Env 2 Key Upper,0,45,0,127,0,0,MSB_ONLY,,
+nrpn,Env 2 Key Lower,1,45,0,127,0,0,MSB_ONLY,,
+nrpn,Env 2 Key Both,2,45,0,127,0,0,MSB_ONLY,,
+sysex,U/L Balance,F0 41 36 cc 24 30 01 12 dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,7F
+sysex,Dual Detune,F0 41 36 cc 24 30 01 13 dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,7F
+sysex,Upper Split Point,F0 41 36 cc 24 30 01 14 dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,7F
+sysex,Lower Split Point,F0 41 36 cc 24 30 01 15 dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,7F
+sysex,Portamento Time,F0 41 36 cc 24 30 01 16 dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,7F
+sysex,Bend Range,F0 41 36 cc 24 30 01 17 dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,7F
+sysex,Bend Range Ext,F0 41 36 cc 24 30 01 34 dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,7F
+sysex,Total Volume,F0 41 36 cc 24 30 01 19 dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,7F
+sysex,Aftertouch Vibrato,F0 41 36 cc 24 30 01 1A dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,7F
+sysex,Aftertouch Brilliance,F0 41 36 cc 24 30 01 1B dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,7F
+sysex,Aftertouch Volume,F0 41 36 cc 24 30 01 1C dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,7F
+sysex,Upper Tone Number,F0 41 36 cc 24 30 01 1D dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,63
+sysex,Upper Chromatic Shift,F0 41 36 cc 24 30 01 1E dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,7F
+sysex,Upper Key Assign,F0 41 36 cc 24 30 01 1F dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,06
+sysex,Upper Unison Detune,F0 41 36 cc 24 30 01 20 dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,7F
+sysex,Upper Hold,F0 41 36 cc 24 30 01 21 dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,01
+sysex,Upper LFO Mod Depth,F0 41 36 cc 24 30 01 22 dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,7F
+sysex,Upper Portamento SW,F0 41 36 cc 24 30 01 23 dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,01
+sysex,Upper Bender SW,F0 41 36 cc 24 30 01 24 dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,01
+sysex,Lower Tone Number,F0 41 36 cc 24 30 01 26 dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,63
+sysex,Lower Chromatic Shift,F0 41 36 cc 24 30 27 1E dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,7F
+sysex,Lower Key Assign,F0 41 36 cc 24 30 01 28 dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,06
+sysex,Lower Unison Detune,F0 41 36 cc 24 30 01 29 dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,7F
+sysex,Lower Hold,F0 41 36 cc 24 30 01 2A dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,01
+sysex,Lower LFO Mod Depth,F0 41 36 cc 24 30 01 2B dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,7F
+sysex,Lower Portamento SW,F0 41 36 cc 24 30 01 2C dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,01
+sysex,Lower Bender SW,F0 41 36 cc 24 30 01 2D dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,01
+sysex,Chase Level,F0 41 36 cc 24 30 01 2F dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,7F
+sysex,Chase Mode,F0 41 36 cc 24 30 01 30 dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,02
+sysex,Chase Time,F0 41 36 cc 24 30 01 31 dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,7F
+sysex,Chase Play,F0 41 36 cc 24 30 01 32 dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,8,00,01

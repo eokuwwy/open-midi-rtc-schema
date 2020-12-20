@@ -11,7 +11,7 @@ public class ControlChange {
     private long controlChangeNumber;
     private String description;
     private String name;
-    private CCValueRange valueRange;
+    private ValueRangeClass valueRange;
 
     /**
      * Additional info that may be useful
@@ -49,7 +49,7 @@ public class ControlChange {
      * The CC value range
      */
     @JsonProperty("valueRange")
-    public CCValueRange getValueRange() { return valueRange; }
+    public ValueRangeClass getValueRange() { return valueRange; }
     @JsonProperty("valueRange")
-    public void setValueRange(CCValueRange value) { this.valueRange = value; }
+    public void setValueRange(ValueRangeClass value) { this.valueRange = value; }
 }

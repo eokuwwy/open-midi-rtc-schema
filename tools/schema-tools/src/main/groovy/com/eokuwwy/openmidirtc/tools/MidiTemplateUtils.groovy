@@ -5,15 +5,21 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import io.quicktype.CCValueRange
 import io.quicktype.ControlChange
+import io.quicktype.ControlChangeSequence
+import io.quicktype.ControlChangeSequenceCommandValueRangeLSB
+import io.quicktype.ControlChangeSequenceCommandValueRangeMSB
 import io.quicktype.Device
 import io.quicktype.DeviceType
 import io.quicktype.NonRegisteredParameterNumber
 import io.quicktype.NrpnCommandValueRange
+import io.quicktype.NrpnCommandValueRangeLSB
+import io.quicktype.NrpnCommandValueRangeMSB
 import io.quicktype.OpenMIDIRealtimeSpecification
 import io.quicktype.SysexValue
 import io.quicktype.SystemExclusive
+import io.quicktype.ValueRangeClass
+import io.quicktype.ValueSequenceType
 
 class MidiTemplateUtils {
     static final String BASE_OUTPUT_DIR = "output"
@@ -30,7 +36,7 @@ class MidiTemplateUtils {
         OpenMIDIRealtimeSpecification midi = new OpenMIDIRealtimeSpecification()
         midi.description = "open-midi-rtc-schema specification for ${deviceName}"
         midi.implementationVersion = "1.0.0"
-        midi.schemaVersion = "0.0.1"
+        midi.schemaVersion = "0.1.1"
         midi.title = "$deviceName MIDI Implementation"
         midi.displayName = "$deviceName"
         midi.device = new Device()
@@ -58,7 +64,7 @@ class MidiTemplateUtils {
         new ControlChange(
             name: name,
             controlChangeNumber: number,
-            valueRange: new CCValueRange(min: 0, max: maxValue)
+            valueRange: new ValueRangeClass(min: 0, max: maxValue)
         )
     }
 
@@ -74,7 +80,37 @@ class MidiTemplateUtils {
         new ControlChange(
             name: name,
             controlChangeNumber: number,
-            valueRange: new CCValueRange(min: minValue, max: maxValue)
+            valueRange: new ValueRangeClass(min: minValue, max: maxValue)
+        )
+    }
+
+    /**
+     * Convenience method for building a ControlChangeSequence instance
+     * @param msbNumber
+     * @param lsbNumber
+     * @param name
+     * @param minMsbValue
+     * @param maxMsbValue
+     * @param minLsbValue
+     * @param maxLsbValue
+     * @param sequenceType
+     * @return
+     */
+    static ControlChangeSequence ccSequenceIt(int msbNumber,
+                                              int lsbNumber,
+                                              String name,
+                                              int minMsbValue,
+                                              int maxMsbValue,
+                                              int minLsbValue,
+                                              int maxLsbValue,
+                                              ValueSequenceType sequenceType) {
+        new ControlChangeSequence(
+            name: name,
+            controlChangeNumberMSB: msbNumber,
+            controlChangeNumberLSB: lsbNumber,
+            valueRangeMSB: new ControlChangeSequenceCommandValueRangeMSB(min: minMsbValue, max: maxMsbValue),
+            valueRangeLSB: new ControlChangeSequenceCommandValueRangeLSB(min: minLsbValue, max: maxLsbValue),
+            valueSequenceType: sequenceType
         )
     }
 
@@ -85,13 +121,15 @@ class MidiTemplateUtils {
      * @param lsb
      * @param min
      * @param max
+     * @param sequenceType
      * @return
      */
-    static NonRegisteredParameterNumber nrpnIt(String name, int msb, int lsb, int min = 0, int max = 127) {
+    static NonRegisteredParameterNumber nrpnIt(String name, int msb, int lsb, int min = 0, int max = 127, ValueSequenceType sequenceType = ValueSequenceType.MSB_LSB) {
         new NonRegisteredParameterNumber(
             name: name,
             parameterNumber: convertIt(msb, lsb),
-            valueRange: new NrpnCommandValueRange(min: min, max: max)
+            valueRange: new NrpnCommandValueRange(min: min, max: max),
+            valueSequenceType: sequenceType
         )
     }
 
@@ -102,13 +140,45 @@ class MidiTemplateUtils {
      * @param name
      * @param min
      * @param max
+     * @param sequenceType
      * @return
      */
-    static NonRegisteredParameterNumber nrpnIt(int number, String name, int min = 0, int max = 127) {
+    static NonRegisteredParameterNumber nrpnIt(int number, String name, int min = 0, int max = 127, ValueSequenceType sequenceType = ValueSequenceType.MSB_LSB) {
         new NonRegisteredParameterNumber(
             name: name,
             parameterNumber: number,
-            valueRange: new NrpnCommandValueRange(min: min, max: max)
+            valueRange: new NrpnCommandValueRange(min: min, max: max),
+            valueSequenceType: sequenceType
+        )
+    }
+
+    /**
+     * Convenience method for building a more completely descriptive NRPN instance, with MSB and LSB components
+     * @param msbNumber
+     * @param lsbNumber
+     * @param name
+     * @param minMsbValue
+     * @param maxMsbValue
+     * @param minLsbValue
+     * @param maxLsbValue
+     * @param sequenceType
+     * @return
+     */
+    static NonRegisteredParameterNumber nrpnIt(int msbNumber,
+                                              int lsbNumber,
+                                              String name,
+                                              int minMsbValue,
+                                              int maxMsbValue,
+                                              int minLsbValue,
+                                              int maxLsbValue,
+                                              ValueSequenceType sequenceType) {
+        new NonRegisteredParameterNumber(
+            name: name,
+            parameterNumberMSB: msbNumber,
+            parameterNumberLSB: lsbNumber,
+            valueRangeMSB: new NrpnCommandValueRangeMSB(min: minMsbValue, max: maxMsbValue),
+            valueRangeLSB: new NrpnCommandValueRangeLSB(min: minLsbValue, max: maxLsbValue),
+            valueSequenceType: sequenceType
         )
     }
 
@@ -223,7 +293,7 @@ class MidiTemplateUtils {
                 a.parameterNumber <=> b.parameterNumber
             }
 
-            sb.append("<table border=\"0\" cellpadding=\"5\" cellspacing=\"0\"><tr><td>Parameter Name</td><td>Param Number</td><td>MSB</td><td>LSB</td><td>Value Range</td><td>Info</td></tr>\n")
+            sb.append("<table border=\"0\" cellpadding=\"5\" cellspacing=\"0\"><tr><td>Parameter Name</td><td>Param Number</td><td>MSB</td><td>LSB</td><td>Value Range</td><td>Value Range MSB</td><td>Value Range LSB</td><td>Value Sequence Type</td><td>Info</td></tr>\n")
             commands.each {
                 String additionalInfo = it.description ?: ""
                 if (additionalInfo && it.additionalInfo) {
@@ -232,10 +302,21 @@ class MidiTemplateUtils {
                     additionalInfo = it.additionalInfo
                 }
 
-                int lsb = it.parameterNumber & 127
-                int msb= it.parameterNumber >> 7
+                int lsb = it.parameterNumberLSB != null ? it.parameterNumberLSB : (it.parameterNumber & 127)
+                int msb = it.parameterNumberMSB != null ? it.parameterNumberMSB : (it.parameterNumber >> 7)
 
-                sb.append("<tr><td class=\"firstCol\">${it.name}</td><td>${it.parameterNumber}</td><td>$msb</td><td>$lsb</td><td>${it.valueRange.min} - ${it.valueRange.max}</td><td class=\"lastCol\">${additionalInfo}</td></tr>\n")
+                String decimalValueRange = it.valueRange != null ? "${it.valueRange.min} - ${it.valueRange.max}" : ""
+
+                String valueRangeLsbMin = it.valueRangeLSB != null ? it.valueRangeLSB.min : ""
+                String valueRangeLsbMax = it.valueRangeLSB != null ? it.valueRangeLSB.max : ""
+
+                String valueRangeMsbMin = it.valueRangeMSB != null ? it.valueRangeMSB.min : ""
+                String valueRangeMsbMax = it.valueRangeMSB != null ? it.valueRangeMSB.max : ""
+
+                ValueSequenceType sequenceType = it.valueSequenceType ?: ValueSequenceType.MSB_LSB
+
+                sb.append("<tr><td class=\"firstCol\">${it.name}</td><td>${it.parameterNumber ?: ""}</td><td>$msb</td><td>$lsb</td><td>$decimalValueRange</td>" +
+                    "<td>$valueRangeMsbMin - $valueRangeMsbMax</td><td>$valueRangeLsbMin - $valueRangeLsbMax</td><td>${sequenceType.name()}</td><td class=\"lastCol\">${additionalInfo}</td></tr>\n")
             }
             sb.append("</table>\n")
             sb.append("<br><br>\n")

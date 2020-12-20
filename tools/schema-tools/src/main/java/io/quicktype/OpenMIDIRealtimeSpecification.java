@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.*;
  */
 public class OpenMIDIRealtimeSpecification {
     private ControlChange[] controlChangeCommands;
+    private ControlChangeSequence[] controlChangeSequenceCommands;
     private String description;
     private Device device;
     private String displayName;
@@ -27,6 +28,14 @@ public class OpenMIDIRealtimeSpecification {
     public ControlChange[] getControlChangeCommands() { return controlChangeCommands; }
     @JsonProperty("controlChangeCommands")
     public void setControlChangeCommands(ControlChange[] value) { this.controlChangeCommands = value; }
+
+    /**
+     * The available control change sequence commands for the specification
+     */
+    @JsonProperty("controlChangeSequenceCommands")
+    public ControlChangeSequence[] getControlChangeSequenceCommands() { return controlChangeSequenceCommands; }
+    @JsonProperty("controlChangeSequenceCommands")
+    public void setControlChangeSequenceCommands(ControlChangeSequence[] value) { this.controlChangeSequenceCommands = value; }
 
     /**
      * A description of the specification

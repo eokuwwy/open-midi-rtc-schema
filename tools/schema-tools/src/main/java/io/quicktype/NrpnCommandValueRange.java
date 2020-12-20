@@ -4,7 +4,7 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.*;
 
 /**
- * The 14-bit value range
+ * The 14-bit full decimal value range
  */
 public class NrpnCommandValueRange {
     private PurpleDiscreteFourteenBitValue[] discreteValues;

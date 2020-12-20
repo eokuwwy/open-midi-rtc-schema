@@ -4,10 +4,10 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.*;
 
 /**
- * The 14-bit full decimal value range
+ * The MSB value range
  */
-public class RpnCommandValueRange {
-    private FluffyDiscreteFourteenBitValue[] discreteValues;
+public class NrpnCommandValueRangeMSB {
+    private StickyDiscreteCCValue[] discreteValues;
     private long max;
     private long min;
 
@@ -15,9 +15,9 @@ public class RpnCommandValueRange {
      * A list of special one-off values outside of the normal value range
      */
     @JsonProperty("discreteValues")
-    public FluffyDiscreteFourteenBitValue[] getDiscreteValues() { return discreteValues; }
+    public StickyDiscreteCCValue[] getDiscreteValues() { return discreteValues; }
     @JsonProperty("discreteValues")
-    public void setDiscreteValues(FluffyDiscreteFourteenBitValue[] value) { this.discreteValues = value; }
+    public void setDiscreteValues(StickyDiscreteCCValue[] value) { this.discreteValues = value; }
 
     /**
      * Maximum value
