@@ -1,6 +1,7 @@
 package com.eokuwwy.openmidirtc.tools
 
 import io.quicktype.ControlChange
+import io.quicktype.ControlChangeSequence
 import io.quicktype.DeviceType
 import io.quicktype.HexValueRange
 import io.quicktype.NonRegisteredParameterNumber
@@ -9,9 +10,11 @@ import io.quicktype.Receive
 import io.quicktype.Receive as Transmit
 import io.quicktype.SysexValue
 import io.quicktype.SystemExclusive
+import io.quicktype.ValueSequenceType
 import io.quicktype.ValueType
 
 import static com.eokuwwy.openmidirtc.tools.MidiTemplateUtils.ccIt
+import static com.eokuwwy.openmidirtc.tools.MidiTemplateUtils.ccSequenceIt
 import static com.eokuwwy.openmidirtc.tools.MidiTemplateUtils.nrpnIt
 import static com.eokuwwy.openmidirtc.tools.MidiTemplateUtils.sysexIt
 
@@ -19,7 +22,9 @@ import static com.eokuwwy.openmidirtc.tools.MidiTemplateUtils.sysexIt
  * Create a spec file from a CSV that has CCs, NRPNs, and Sysex commands
  * Example CSV Lines:
  * cc,Filter Cutoff,74,,0,127,,,,,
- * nrpn,Filter Res,31,1,0,255,,,,,
+ * ccSeq,Filter Cutoff,71,23,0,127,0,127,MSB_LSB,,,,
+ * nrpnDecimal,Filter Res,31,1,0,255,,,,,
+ * nrpn,Filter Res,31,1,0,127,0,127,MSB_LSB,,
  * sysex,PWM Depth,F0 41 32 cc 0F dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,5,00,7F
  * sysex,DCO Level,F0 41 32 01 0F dd F7,DATA_VALUE,5,00,7F,,,,
  */
@@ -28,17 +33,18 @@ class CsvImporter {
     static final int CSV_COLUMN_PARAM_NAME = 1
     static final int CSV_COLUMN_PARAM_MSB = 2, CSV_COLUMN_PARAM_SYSEX_MESSAGE = 2
     static final int CSV_COLUMN_PARAM_LSB = 3, CSV_COLUMN_SYSEX_SUB_TYPE_1 = 3
-    static final int CSV_COLUMN_PARAM_MIN_VAL = 4, CSV_COLUMN_SYSEX_SUB_INDEX_1 = 4
-    static final int CSV_COLUMN_PARAM_MAX_VAL = 5, CSV_COLUMN_SYSEX_SUB_VALUE_1_MIN = 5
-    static final int CSV_COLUMN_SYSEX_SUB_VALUE_1_MAX  = 6
-    static final int CSV_COLUMN_SYSEX_SUB_TYPE_2 = 7
-    static final int CSV_COLUMN_SYSEX_SUB_INDEX_2 = 8
+    static final int CSV_COLUMN_PARAM_MIN_VAL = 4, CSV_COLUMN_SYSEX_SUB_INDEX_1 = 4, CSV_COLUMN_PARAM_MSB_MIN_VAL = 4
+    static final int CSV_COLUMN_PARAM_MAX_VAL = 5, CSV_COLUMN_SYSEX_SUB_VALUE_1_MIN = 5, CSV_COLUMN_PARAM_MSB_MAX_VAL = 5
+    static final int CSV_COLUMN_SYSEX_SUB_VALUE_1_MAX  = 6, CSV_COLUMN_PARAM_LSB_MIN_VAL = 6
+    static final int CSV_COLUMN_SYSEX_SUB_TYPE_2 = 7, CSV_COLUMN_PARAM_LSB_MAX_VAL = 7
+    static final int CSV_COLUMN_SYSEX_SUB_INDEX_2 = 8, CSV_COLUMN_VALUE_SEQUENCE_TYPE  = 8 // MSB_ONLY, MSB_LSB, MSB_UNTIL_OVERFLOW
     static final int CSV_COLUMN_SYSEX_SUB_VALUE_2_MIN = 9
     static final int CSV_COLUMN_SYSEX_SUB_VALUE_2_MAX  = 10
 
-
     static final String PARAM_TYPE_CC = 'cc'
-    static final String PARAM_TYPE_NRPN = 'nrpn'
+    static final String PARAM_TYPE_CC_SEQUENCE = 'ccSeq'
+    static final String PARAM_TYPE_NRPN_DECIMAL = 'nrpnDecimal' // NRPNs in decimal notation without breaking up into MSB and LSB
+    static final String PARAM_TYPE_NRPN = 'nrpn' // akin to CC Sequence, uses MSB and LSB
     static final String PARAM_TYPE_SYSEX = 'sysex'
 
     static void main(String[] args) {
@@ -112,6 +118,7 @@ class CsvImporter {
         String deviceName = displayName ?: ""
 
         List<ControlChange> ccCommands = []
+        List<ControlChangeSequence> ccSequenceCommands = []
         List<NonRegisteredParameterNumber> nrpnCommands = []
         List<SystemExclusive> sysexCommands = []
 
@@ -130,8 +137,20 @@ class CsvImporter {
                 if (cc != null) {
                     ccCommands.add(cc)
                 }
+            } else if (paramType == PARAM_TYPE_CC_SEQUENCE) {
+                ControlChangeSequence ccs = ccSequenceCommand(splitter)
+
+                if (ccs != null) {
+                    ccSequenceCommands.add(ccs)
+                }
+            } else if (paramType == PARAM_TYPE_NRPN_DECIMAL) {
+                NonRegisteredParameterNumber nrpn = nrpnDecimalCommand(splitter)
+
+                if (nrpn != null) {
+                    nrpnCommands.add(nrpn)
+                }
             } else if (paramType == PARAM_TYPE_NRPN) {
-                NonRegisteredParameterNumber nrpn = nrpnCommand(splitter)
+                NonRegisteredParameterNumber nrpn = nrpnSequenceCommand(splitter)
 
                 if (nrpn != null) {
                     nrpnCommands.add(nrpn)
@@ -176,6 +195,7 @@ class CsvImporter {
 
         midi.controlChangeCommands = ccCommands as ControlChange[]
         midi.nrpnCommands = nrpnCommands as NonRegisteredParameterNumber[]
+        midi.controlChangeSequenceCommands = ccSequenceCommands as ControlChangeSequence[]
         midi.sysexCommands = sysexCommands as SystemExclusive[]
 
         MidiTemplateUtils.createSpecFiles(midi, outputName)
@@ -207,7 +227,112 @@ class CsvImporter {
         }
     }
 
-    private NonRegisteredParameterNumber nrpnCommand(String[] line) {
+    private ControlChangeSequence ccSequenceCommand(String[] line) {
+        String paramName = line[CSV_COLUMN_PARAM_NAME].trim()
+        String paramNumberMsb = line[CSV_COLUMN_PARAM_MSB].trim()
+        String paramNumberLsb = line[CSV_COLUMN_PARAM_LSB].trim()
+        String minMsbValue = line[CSV_COLUMN_PARAM_MSB_MIN_VAL].trim()
+        String maxMsbValue = line[CSV_COLUMN_PARAM_MSB_MAX_VAL].trim()
+        String minLsbValue = line[CSV_COLUMN_PARAM_LSB_MIN_VAL].trim()
+        String maxLsbValue = line[CSV_COLUMN_PARAM_LSB_MAX_VAL].trim()
+        String sequenceType = line[CSV_COLUMN_VALUE_SEQUENCE_TYPE].trim()
+
+        int minMsbVal = 0
+        int maxMsbVal = 127
+
+        int minLsbVal = 0
+        int maxLsbVal = 127
+
+        ValueSequenceType sequenceTypeVal = ValueSequenceType.MSB_LSB
+
+        try {
+            int ccMsbInt = Integer.parseInt(paramNumberMsb)
+            int ccLsbInt = Integer.parseInt(paramNumberLsb)
+
+            if (!minMsbValue.isEmpty()) {
+                minMsbVal = Integer.parseInt(minMsbValue)
+            }
+
+            if (!maxMsbValue.isEmpty()) {
+                maxMsbVal = Integer.parseInt(maxMsbValue)
+            }
+
+            if (!minLsbValue.isEmpty()) {
+                minLsbVal = Integer.parseInt(minLsbValue)
+            }
+
+            if (!maxLsbValue.isEmpty()) {
+                maxLsbVal = Integer.parseInt(maxLsbValue)
+            }
+
+            if (!sequenceType.isEmpty()) {
+                if (sequenceType == "MSB_ONLY") {
+                    sequenceTypeVal = ValueSequenceType.MSB_ONLY
+                } else if (sequenceType == "MSB_UNTIL_OVERFLOW") {
+                    sequenceTypeVal = ValueSequenceType.MSB_UNTIL_OVERFLOW
+                }
+            }
+
+            return ccSequenceIt(ccMsbInt, ccLsbInt, paramName, minMsbVal, maxMsbVal, minLsbVal, maxLsbVal, sequenceTypeVal)
+        } catch(Exception e) {
+            return null
+        }
+    }
+
+    private NonRegisteredParameterNumber nrpnSequenceCommand(String[] line) {
+        String paramName = line[CSV_COLUMN_PARAM_NAME].trim()
+        String paramNumberMsb = line[CSV_COLUMN_PARAM_MSB].trim()
+        String paramNumberLsb = line[CSV_COLUMN_PARAM_LSB].trim()
+        String minMsbValue = line[CSV_COLUMN_PARAM_MSB_MIN_VAL].trim()
+        String maxMsbValue = line[CSV_COLUMN_PARAM_MSB_MAX_VAL].trim()
+        String minLsbValue = line[CSV_COLUMN_PARAM_LSB_MIN_VAL].trim()
+        String maxLsbValue = line[CSV_COLUMN_PARAM_LSB_MAX_VAL].trim()
+        String sequenceType = line[CSV_COLUMN_VALUE_SEQUENCE_TYPE].trim()
+
+        int minMsbVal = 0
+        int maxMsbVal = 127
+
+        int minLsbVal = 0
+        int maxLsbVal = 127
+
+        ValueSequenceType sequenceTypeVal = ValueSequenceType.MSB_LSB
+
+        try {
+            int nrpnMsbInt = Integer.parseInt(paramNumberMsb)
+            int nrpnLsbInt = Integer.parseInt(paramNumberLsb)
+
+            if (!minMsbValue.isEmpty()) {
+                minMsbVal = Integer.parseInt(minMsbValue)
+            }
+
+            if (!maxMsbValue.isEmpty()) {
+                maxMsbVal = Integer.parseInt(maxMsbValue)
+            }
+
+            if (!minLsbValue.isEmpty()) {
+                minLsbVal = Integer.parseInt(minLsbValue)
+            }
+
+            if (!maxLsbValue.isEmpty()) {
+                maxLsbVal = Integer.parseInt(maxLsbValue)
+            }
+
+            if (!sequenceType.isEmpty()) {
+                if (sequenceType == "MSB_ONLY") {
+                    sequenceTypeVal = ValueSequenceType.MSB_ONLY
+                } else if (sequenceType == "MSB_UNTIL_OVERFLOW") {
+                    sequenceTypeVal = ValueSequenceType.MSB_UNTIL_OVERFLOW
+                }
+            }
+
+            return nrpnIt(nrpnMsbInt, nrpnLsbInt, paramName, minMsbVal, maxMsbVal, minLsbVal, maxLsbVal, sequenceTypeVal)
+        } catch(Exception e) {
+            println("ERROR: ${e.getMessage()}")
+            return null
+        }
+    }
+
+    private NonRegisteredParameterNumber nrpnDecimalCommand(String[] line) {
         String paramName = line[CSV_COLUMN_PARAM_NAME].trim()
         String paramMsb = line[CSV_COLUMN_PARAM_MSB].trim()
         String paramLsb = line[CSV_COLUMN_PARAM_LSB].trim()

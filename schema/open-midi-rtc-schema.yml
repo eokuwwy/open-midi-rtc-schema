@@ -1,6 +1,6 @@
 ---
 type: "object"
-id: "open-midi-rtc-schema-0.0.1"
+id: "open-midi-rtc-schema-0.1.1"
 description: "The Open MIDI Realtime Schema"
 title: "MidiImplementationSpecification"
 properties:
@@ -68,6 +68,121 @@ properties:
       - "name"
       - "valueRange"
     description: "The available control change commands for the specification"
+  controlChangeSequenceCommands:
+    type: "array"
+    items:
+      type: "object"
+      description: "Control Change MSB LSB sequence command specification, typically\
+        \ used to send high res MIDI values via a sequence of MIDI CCs"
+      title: "Control Change Sequence"
+      properties:
+        additionalInfo:
+          type: "string"
+          description: "Additional info that may be useful"
+        controlChangeNumberLSB:
+          type: "integer"
+          description: "The control change number used for the LSB value"
+          maximum: 127
+          minimum: 0
+        controlChangeNumberMSB:
+          type: "integer"
+          description: "The control change number used for the MSB value"
+          maximum: 127
+          minimum: 0
+        description:
+          type: "string"
+          description: "Description of the control change sequence"
+        name:
+          type: "string"
+          description: "The name of the function of the MSB LSB control change sequence"
+        valueRangeLSB:
+          type: "object"
+          description: "The LSB value range"
+          title: "CCValueRange"
+          properties:
+            discreteValues:
+              type: "array"
+              items:
+                type: "object"
+                description: "A CC name/value pair"
+                title: "DiscreteCCValue"
+                properties:
+                  name:
+                    type: "string"
+                    description: "CC value name"
+                  value:
+                    type: "integer"
+                    description: "CC value"
+                    maximum: 127
+                    minimum: 0
+                required:
+                - "name"
+                - "value"
+              description: "A list of special one-off values outside of the normal\
+                \ value range"
+            max:
+              type: "integer"
+              description: "Maximum value"
+              maximum: 127
+              minimum: 0
+            min:
+              type: "integer"
+              description: "Minimum value"
+              maximum: 127
+              minimum: 0
+          required:
+          - "max"
+          - "min"
+        valueRangeMSB:
+          type: "object"
+          description: "The MSB value range"
+          title: "CCValueRange"
+          properties:
+            discreteValues:
+              type: "array"
+              items:
+                type: "object"
+                description: "A CC name/value pair"
+                title: "DiscreteCCValue"
+                properties:
+                  name:
+                    type: "string"
+                    description: "CC value name"
+                  value:
+                    type: "integer"
+                    description: "CC value"
+                    maximum: 127
+                    minimum: 0
+                required:
+                - "name"
+                - "value"
+              description: "A list of special one-off values outside of the normal\
+                \ value range"
+            max:
+              type: "integer"
+              description: "Maximum value"
+              maximum: 127
+              minimum: 0
+            min:
+              type: "integer"
+              description: "Minimum value"
+              maximum: 127
+              minimum: 0
+          required:
+          - "max"
+          - "min"
+        valueSequenceType:
+          enum:
+          - "MSB_LSB"
+          - "MSB_ONLY"
+          - "MSB_UNTIL_OVERFLOW"
+          type: "string"
+          description: "The MSB LSB value sequence type"
+      required:
+      - "controlChangeNumberLSB"
+      - "controlChangeNumberMSB"
+      - "name"
+    description: "The available control change sequence commands for the specification"
   description:
     type: "string"
     description: "A description of the specification"
@@ -168,12 +283,22 @@ properties:
           description: "The name of the function of the control change"
         parameterNumber:
           type: "integer"
-          description: "The NRPN parameter number"
+          description: "The NRPN parameter number full decimal value"
           maximum: 16383
+          minimum: 0
+        parameterNumberLSB:
+          type: "integer"
+          description: "The NRPN parameter number LSB"
+          maximum: 127
+          minimum: 0
+        parameterNumberMSB:
+          type: "integer"
+          description: "The NRPN parameter number MSB"
+          maximum: 127
           minimum: 0
         valueRange:
           type: "object"
-          description: "The 14-bit value range"
+          description: "The 14-bit full decimal value range"
           title: "FourteenBitValueRange"
           properties:
             discreteValues:
@@ -209,10 +334,91 @@ properties:
           required:
           - "max"
           - "min"
+        valueRangeLSB:
+          type: "object"
+          description: "The LSB value range"
+          title: "CCValueRange"
+          properties:
+            discreteValues:
+              type: "array"
+              items:
+                type: "object"
+                description: "A CC name/value pair"
+                title: "DiscreteCCValue"
+                properties:
+                  name:
+                    type: "string"
+                    description: "CC value name"
+                  value:
+                    type: "integer"
+                    description: "CC value"
+                    maximum: 127
+                    minimum: 0
+                required:
+                - "name"
+                - "value"
+              description: "A list of special one-off values outside of the normal\
+                \ value range"
+            max:
+              type: "integer"
+              description: "Maximum value"
+              maximum: 127
+              minimum: 0
+            min:
+              type: "integer"
+              description: "Minimum value"
+              maximum: 127
+              minimum: 0
+          required:
+          - "max"
+          - "min"
+        valueRangeMSB:
+          type: "object"
+          description: "The MSB value range"
+          title: "CCValueRange"
+          properties:
+            discreteValues:
+              type: "array"
+              items:
+                type: "object"
+                description: "A CC name/value pair"
+                title: "DiscreteCCValue"
+                properties:
+                  name:
+                    type: "string"
+                    description: "CC value name"
+                  value:
+                    type: "integer"
+                    description: "CC value"
+                    maximum: 127
+                    minimum: 0
+                required:
+                - "name"
+                - "value"
+              description: "A list of special one-off values outside of the normal\
+                \ value range"
+            max:
+              type: "integer"
+              description: "Maximum value"
+              maximum: 127
+              minimum: 0
+            min:
+              type: "integer"
+              description: "Minimum value"
+              maximum: 127
+              minimum: 0
+          required:
+          - "max"
+          - "min"
+        valueSequenceType:
+          enum:
+          - "MSB_LSB"
+          - "MSB_ONLY"
+          - "MSB_UNTIL_OVERFLOW"
+          type: "string"
+          description: "The MSB LSB value sequence type"
       required:
       - "name"
-      - "parameterNumber"
-      - "valueRange"
     description: "The available NRPN commands for the specification"
   receives:
     type: "array"
@@ -226,6 +432,9 @@ properties:
       - "POLY_PRESSURE"
       - "PITCH_BEND"
       - "CLOCK"
+      - "TRANSPORT_START"
+      - "TRANSPORT_STOP"
+      - "TRANSPORT_CONTINUE"
       type: "string"
     description: "The command types that can be received"
   rpnCommands:
@@ -246,12 +455,22 @@ properties:
           description: "The name of the function of the control change"
         parameterNumber:
           type: "integer"
-          description: "The RPN parameter number"
+          description: "The RPN parameter number full decimal value"
           maximum: 16383
+          minimum: 0
+        parameterNumberLSB:
+          type: "integer"
+          description: "The RPN parameter number LSB"
+          maximum: 127
+          minimum: 0
+        parameterNumberMSB:
+          type: "integer"
+          description: "The RPN parameter number MSB"
+          maximum: 127
           minimum: 0
         valueRange:
           type: "object"
-          description: "The 14-bit value range"
+          description: "The 14-bit full decimal value range"
           title: "FourteenBitValueRange"
           properties:
             discreteValues:
@@ -287,16 +506,97 @@ properties:
           required:
           - "max"
           - "min"
+        valueRangeLSB:
+          type: "object"
+          description: "The LSB value range"
+          title: "CCValueRange"
+          properties:
+            discreteValues:
+              type: "array"
+              items:
+                type: "object"
+                description: "A CC name/value pair"
+                title: "DiscreteCCValue"
+                properties:
+                  name:
+                    type: "string"
+                    description: "CC value name"
+                  value:
+                    type: "integer"
+                    description: "CC value"
+                    maximum: 127
+                    minimum: 0
+                required:
+                - "name"
+                - "value"
+              description: "A list of special one-off values outside of the normal\
+                \ value range"
+            max:
+              type: "integer"
+              description: "Maximum value"
+              maximum: 127
+              minimum: 0
+            min:
+              type: "integer"
+              description: "Minimum value"
+              maximum: 127
+              minimum: 0
+          required:
+          - "max"
+          - "min"
+        valueRangeMSB:
+          type: "object"
+          description: "The MSB value range"
+          title: "CCValueRange"
+          properties:
+            discreteValues:
+              type: "array"
+              items:
+                type: "object"
+                description: "A CC name/value pair"
+                title: "DiscreteCCValue"
+                properties:
+                  name:
+                    type: "string"
+                    description: "CC value name"
+                  value:
+                    type: "integer"
+                    description: "CC value"
+                    maximum: 127
+                    minimum: 0
+                required:
+                - "name"
+                - "value"
+              description: "A list of special one-off values outside of the normal\
+                \ value range"
+            max:
+              type: "integer"
+              description: "Maximum value"
+              maximum: 127
+              minimum: 0
+            min:
+              type: "integer"
+              description: "Minimum value"
+              maximum: 127
+              minimum: 0
+          required:
+          - "max"
+          - "min"
+        valueSequenceType:
+          enum:
+          - "MSB_LSB"
+          - "MSB_ONLY"
+          - "MSB_UNTIL_OVERFLOW"
+          type: "string"
+          description: "The MSB LSB value sequence type"
       required:
       - "name"
-      - "parameterNumber"
-      - "valueRange"
     description: "The available RPN commands for the specification"
   schemaVersion:
     type: "string"
     description: "The version of the schema; should match the version specified in\
       \ the id attribute"
-    pattern: "0.0.1"
+    pattern: "0.1.1"
   sysexCommands:
     type: "array"
     items:
@@ -408,9 +708,13 @@ properties:
       - "POLY_PRESSURE"
       - "PITCH_BEND"
       - "CLOCK"
+      - "TRANSPORT_START"
+      - "TRANSPORT_STOP"
+      - "TRANSPORT_CONTINUE"
       type: "string"
     description: "The command types that can be transmitted"
 required:
+- "controlChangeSequenceCommands"
 - "device"
 - "displayName"
 - "implementationVersion"

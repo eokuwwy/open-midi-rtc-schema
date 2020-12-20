@@ -1,0 +1,20 @@
+1,Modulation,,
+70,Osc Wave,,
+79,Osc Tune,,
+31,Osc Shape,0,1
+74,Cutoff,,
+71,Resonance,,
+73,Env Mod,,
+83,Keytrack,0,2
+76,LFO Speed,,
+77,LFO Depth,,
+78,LFO Shape,0,2
+80,Vibrato Mod LFO,,
+75,ENV Decay,,
+103,ENV Sustain,0,1
+72,ENV Release,0,1
+5,Glide,,
+14,Arp Tempo,,
+12,Arp Range,,
+13,Arp Direction,0,2
+64,Sustain Pedal,0,64

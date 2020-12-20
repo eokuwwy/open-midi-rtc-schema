@@ -1,0 +1,97 @@
+0,Seq Load,0,63
+1,Modulation Wheel,0,63
+5,Glide,,
+7,Headphone Volume,,
+9,Voice Mode,,
+11,Expression Pedal,0,63
+12,Distortion,,
+13,Delay,,
+14,Delay Time,,
+15,Delay Feedback,,
+16,Osc1 Wave,,
+17,Osc2 Wave,,
+18,Osc Mix,,
+19,FM Amount,,
+20,Spread,,
+21,Chord Mode,,
+22,FEG Attack,,
+23,FEG Decay,,
+24,FEG Sustain,,
+25,FEG Release,,
+26,AEG Attack,,
+27,AEG Decay,,
+28,AEG Sustain,,
+29,AEG Release,,
+30,Osc2 Coarse Detune,,
+31,Osc2 Fine Detune,,
+32,FEG Amount,,
+33,Morph,,
+34,Cutoff,,
+35,Reso,,
+36,LFO1 Rate,,
+37,LFO1 Depth,,
+39,LFO1 Shape,,
+40,Octave,,
+43,MEG Attack,,
+44,MEG Decay,,
+45,MEG Sustain,,
+46,MEG Release,,
+47,LFO2 Rate,,
+48,LFO2 Depth,,
+49,MEG Amount,,
+50,LFO2 Shape,,
+51,AEG Amount,,
+52,LFO1 MIDI Sync,,
+53,Ring Mod,,
+54,LFO2 MIDI Sync,,
+55,Delay MIDI Sync,,
+56,LFO1 Mode,,
+57,LFO2 Mode,,
+58,Arp Status,,
+59,Arp Octave,,
+60,Arp Direction,,
+61,Arp Division,,
+62,Velo Depth,,
+63,Note Depth,,
+64,Sustain Pedal,,
+65,Aftertouch Depth,,
+66,Ext Depth,,
+67,Sequence Length,,
+70,Sequence Hold,,
+71,Sequence Loop,,
+75,Transpose,,
+78,Swing,,
+80,Anim 1 CC,,
+81,Anim 2 CC,,
+82,Anim 3 CC,,
+83,Anim 4 CC,,
+84,All Envelope Attack,,
+85,All Envelope Decay,,
+86,All Envelope Sustain,,
+87,All Envelope Release,,
+88,Mod Slot 1 Depth,,
+89,Mod Slot 2 Depth,,
+90,Mod Slot 3 Depth,,
+91,Mod Slot 4 Depth,,
+92,Mod Slot 5 Depth,,
+93,Mod Slot 6 Depth,,
+94,Mod Slot 7 Depth,,
+95,Mod Slot 8 Depth,,
+96,ModW Depth,,
+101,Mod Slot 1 Source,0,7
+102,Mod Slot 2 Source,0,7
+103,Mod Slot 3 Source,0,7
+104,Mod Slot 4 Source,0,7
+105,Mod Slot 5 Source,0,7
+106,Mod Slot 6 Source,0,7
+107,Mod Slot 7 Source,0,7
+108,Mod Slot 8 Source,0,7
+111,Mod Slot 1 Dest,0,36
+112,Mod Slot 2 Dest,0,36
+113,Mod Slot 3 Dest,0,36
+114,Mod Slot 4 Dest,0,36
+115,Mod Slot 5 Dest,0,36
+116,Mod Slot 6 Dest,0,36
+117,Mod Slot 7 Dest,0,36
+118,Mod Slot 8 Dest,0,36
+121,Randomise Patch,0,1

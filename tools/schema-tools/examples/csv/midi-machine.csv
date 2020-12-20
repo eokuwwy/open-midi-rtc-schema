@@ -1,6 +1,9 @@
 cc,Filter Cutoff,74,,0,127,,,,,
 cc,Filter Drive,75,,,,,,,,
-nrpn,Filter Res,31,1,0,255,,,,,
-nrpn,Env Filter Depth,8,1,0,164,,,,,
+nrpnDecimal,Filter Res,31,1,0,255,,,,,
+nrpnDecimal,Env Filter Depth,8,1,0,164,,,,,
+nrpn,Env 1 Sustain Upper,0,38,0,127,0,0,MSB_ONLY,,
+nrpn,Env 2 Sustain Lower,1,38,0,127,0,127,MSB_UNTIL_OVERFLOW,,
+ccSeq,High Res HPF Freq,61,31,0,127,0,127,MSB_LSB,,
 sysex,PWM Depth,F0 41 32 cc 0F dd F7,MIDI_CHANNEL,3,00,0F,DATA_VALUE,5,00,7F
 sysex,DCO Level,F0 41 32 01 0F dd F7,DATA_VALUE,5,00,7F,,,,
