@@ -896,7 +896,6 @@
     }
   },
   "required": [
-    "controlChangeSequenceCommands",
     "device",
     "displayName",
     "implementationVersion",

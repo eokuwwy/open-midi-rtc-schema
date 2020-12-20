@@ -714,7 +714,6 @@ properties:
       type: "string"
     description: "The command types that can be transmitted"
 required:
-- "controlChangeSequenceCommands"
 - "device"
 - "displayName"
 - "implementationVersion"
